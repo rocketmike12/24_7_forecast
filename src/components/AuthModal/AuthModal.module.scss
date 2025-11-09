@@ -29,6 +29,12 @@
 			margin-bottom: 40px;
 		}
 
+		&__form {
+			display: flex;
+			align-items: center;
+			flex-direction: column;
+		}
+
 		&__input-wrap {
 			display: flex;
 			flex-direction: column;
@@ -59,8 +65,8 @@
 			color: $fg-light;
 
 			padding: 10px 30px;
-            margin-top: 5px;
-            margin-bottom: 15px;
+			margin-top: 5px;
+			margin-bottom: 15px;
 
 			border-radius: 10px;
 		}
