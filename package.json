@@ -4,26 +4,22 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
-		"dev": "vite",
-		"build": "vite build",
-		"lint": "eslint .",
-		"preview": "vite preview"
+		"dev": "nodemon src/server/main.js -w src/server",
+		"start": "NODE_ENV=production node src/server/main.js",
+		"build": "vite build"
 	},
 	"dependencies": {
 		"express": "^5.1.0",
 		"react": "^19.2.0",
 		"react-dom": "^19.2.0",
-		"sass-embedded": "^1.93.3"
+		"sass-embedded": "^1.93.3",
+		"vite-express": "*"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.39.1",
 		"@types/react": "^19.2.5",
 		"@types/react-dom": "^19.2.3",
 		"@vitejs/plugin-react": "^5.1.1",
-		"eslint": "^9.39.1",
-		"eslint-plugin-react-hooks": "^7.0.1",
-		"eslint-plugin-react-refresh": "^0.4.24",
-		"globals": "^16.5.0",
+		"nodemon": "^3.1.11",
 		"vite": "^7.2.2"
 	}
 }
