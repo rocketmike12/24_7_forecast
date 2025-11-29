@@ -1,1 +1,56 @@
-@use "../../sass/base/base.scss";
+@import "../../sass/base/base.scss";
+
+.header {
+	& > div {
+		padding-top: 12px;
+		padding-bottom: 12px;
+
+		display: flex;
+		align-items: center;
+	}
+
+	&__icon {
+		width: 82px;
+		height: 56px;
+	}
+
+	&__nav {
+		margin-left: 111px;
+		margin-right: 519px;
+
+		&-list {
+			width: 262px;
+
+			display: flex;
+			align-items: center;
+			gap: 42px;
+
+			&-text {
+				@include typography(Montserrat Alternates, 500, Medium, 12px, 100%, 0%, _);
+                color: $fg-light;
+			}
+		}
+	}
+
+	&__profile {
+		display: flex;
+		align-items: center;
+		gap: 27px;
+
+		&-button {
+			width: 89px;
+			height: 35px;
+
+			border-radius: 10px;
+
+			@include typography(inherit, 500, Medium, 12px, 100%, 0%, _);
+			color: $fg-light;
+			background-color: $accent-light;
+		}
+
+		&-img {
+			width: 50px;
+			height: 50px;
+		}
+	}
+}
