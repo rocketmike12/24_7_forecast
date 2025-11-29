@@ -73,6 +73,8 @@
 
 			border-radius: 10px 0 0 10px;
 
+			@include typography(Montserrat, 500, Medium, 14px, 100%, 0%, _);
+
 			background-color: $hero-input-bg-light;
 
 			&::placeholder {
@@ -86,15 +88,15 @@
 			height: 100%;
 			width: 45px;
 
-            padding: 9px 10px;
+			padding: 9px 10px;
 
-            display: flex;
-            justify-content: center;
-            align-items: center;
+			display: flex;
+			justify-content: center;
+			align-items: center;
 
 			border-radius: 0 10px 10px 0;
 
-            background-color: $accent-light;
+			background-color: $accent-light;
 		}
 	}
 }
