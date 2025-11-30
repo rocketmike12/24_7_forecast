@@ -6,7 +6,7 @@ import { AuthContext } from "../../contexts/AuthContext";
 
 import styles from "./AuthModal.module.scss";
 
-axios.defaults.baseURL = import.meta.env.VITE_ENV === "dev" ? "/api/v0" : "https://247forecastserver-production.up.railway.app/api/v0/";
+axios.defaults.baseURL = import.meta.env.VITE_ENV === "dev" ? "/api/v0" : process.env.VITE_USERS_API;
 
 export const AuthModal = function ({ isOpen, closeModal }) {
 	const { isLogin, setIsLogin, username, setUsername } = useContext(AuthContext);
