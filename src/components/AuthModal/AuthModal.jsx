@@ -1,8 +1,12 @@
 import { useContext } from "react";
 
+import axios from "axios";
+
 import { AuthContext } from "../../contexts/AuthContext";
 
 import styles from "./AuthModal.module.scss";
+
+axios.defaults.baseURL = import.meta.env.VITE_ENV === "dev" ? "/api/v0" : "https://247forecastserver-production.up.railway.app/api/v0/";
 
 export const AuthModal = function ({ isOpen, closeModal }) {
 	const { isLogin, setIsLogin, username, setUsername } = useContext(AuthContext);
@@ -19,8 +23,15 @@ export const AuthModal = function ({ isOpen, closeModal }) {
 		const username = form.elements.username.value;
 		const password = form.elements.password.value;
 
-		setIsLogin(true);
-		setUsername(username);
+		axios
+			.post("/auth/register", { username: username, password: password }, { withCredentials: true })
+			.then((res) => {
+				setIsLogin(true);
+				setUsername(res.data.username);
+			})
+			.catch((err) => {
+				console.error(err);
+			});
 
 		form.reset();
 
