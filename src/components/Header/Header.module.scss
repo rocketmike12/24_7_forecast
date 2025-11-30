@@ -16,7 +16,6 @@
 
 	&__nav {
 		margin-left: 111px;
-		margin-right: 519px;
 
 		&-list {
 			width: 262px;
@@ -27,12 +26,14 @@
 
 			&-text {
 				@include typography(Montserrat Alternates, 500, Medium, 12px, 100%, 0%, _);
-                color: $fg-light;
+				color: $fg-light;
 			}
 		}
 	}
 
 	&__profile {
+		margin-left: auto;
+
 		display: flex;
 		align-items: center;
 		gap: 27px;

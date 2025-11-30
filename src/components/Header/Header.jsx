@@ -1,11 +1,20 @@
-import profileImg from "../../img/profile.png";
-import logo from "../../img/logo.svg";
+import { useContext } from "react";
+
+import { AuthContext } from "../../contexts/AuthContext";
 
 import { Container } from "../Container/Container";
+
+import profileImg from "../../img/profile.png";
+import logo from "../../img/logo.svg";
 
 import styles from "./Header.module.scss";
 
 export const Header = function ({ openModal }) {
+	const user = useContext(AuthContext);
+
+	user.setIsLogin(true);
+	user.setUsername("test");
+
 	return (
 		<>
 			<header className={styles["header"]}>
@@ -27,7 +36,12 @@ export const Header = function ({ openModal }) {
 					</nav>
 
 					<div className={styles["header__profile"]}>
-						<button className={styles["header__profile-button"]} onClick={openModal}>Sign Up</button>
+						{user.isLogin && <p className="header__profile-username">{user.username}</p>}
+
+						<button className={styles["header__profile-button"]} onClick={openModal}>
+							{user.isLogin ? "Profile" : "Sign Up"}
+						</button>
+
 						<img src={profileImg} alt="user" className={styles["header__profile-img"]} />
 					</div>
 				</Container>
