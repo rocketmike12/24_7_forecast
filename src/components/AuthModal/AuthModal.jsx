@@ -8,6 +8,8 @@ import styles from "./AuthModal.module.scss";
 
 // axios.defaults.baseURL = import.meta.env.VITE_ENV === "dev" ? "/api/v0" : import.meta.env.VITE_USERS_API;
 axios.defaults.baseURL = import.meta.env.VITE_USERS_API;
+console.log(axios.defaults.baseURL);
+console.log(import.meta.env.VITE_USERS_API)
 
 export const AuthModal = function ({ isOpen, closeModal }) {
 	const { isLogin, setIsLogin, username, setUsername } = useContext(AuthContext);
