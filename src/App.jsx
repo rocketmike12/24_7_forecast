@@ -19,6 +19,7 @@ export const App = function () {
 	}, []);
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [modalRole, setModalRole] = useState("register");
 	const [isWeatherOpen, setIsWeatherOpen] = useState(false);
 
 	const openModal = function () {
@@ -31,7 +32,7 @@ export const App = function () {
 
 	return (
 		<>
-			<AuthModal isOpen={isModalOpen} closeModal={closeModal} />
+			<AuthModal isOpen={isModalOpen} role={modalRole} setRole={setModalRole} closeModal={closeModal} />
 
 			<Header openModal={openModal} />
 
