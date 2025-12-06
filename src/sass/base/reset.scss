@@ -6,6 +6,12 @@ button {
 	font-family: inherit;
 }
 
+a,
+input,
+button {
+	cursor: pointer;
+}
+
 ul,
 ol {
 	list-style: none;
@@ -16,6 +22,7 @@ ol {
 p,
 h1,
 h2,
-h3 {
+h3,
+a {
 	margin: 0;
 }
