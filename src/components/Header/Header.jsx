@@ -1,5 +1,7 @@
 import { useContext } from "react";
 
+import axios from "axios";
+
 import { AuthContext } from "../../contexts/AuthContext";
 
 import { Container } from "../Container/Container";
@@ -12,6 +14,20 @@ import styles from "./Header.module.scss";
 export const Header = function ({ openModal }) {
 	const { isLogin, setIsLogin, username, setUsername } = useContext(AuthContext);
 
+	const handleLogout = function (e) {
+		if (e.target !== e.currentTarget) return;
+
+		axios
+			.post("/auth/logout", "", { withCredentials: true })
+			.then((res) => {
+				setIsLogin(false);
+				setUsername(null);
+			})
+			.catch((err) => {
+				console.error(err);
+			});
+	};
+
 	return (
 		<>
 			<header className={styles["header"]}>
@@ -21,23 +37,32 @@ export const Header = function ({ openModal }) {
 					<nav className={styles["header__nav"]}>
 						<ul className={styles["header__nav-list"]}>
 							<li className={styles["header__nav-list-item"]}>
-								<p className={styles["header__nav-list-text"]}>Who we are</p>
+								<a href="#" className={styles["header__nav-list-link"]}>Who we are</a>
 							</li>
 							<li className={styles["header__nav-list-item"]}>
-								<p className={styles["header__nav-list-text"]}>Contacts</p>
+								<a href="#" className={styles["header__nav-list-link"]}>Contacts</a>
 							</li>
 							<li className={styles["header__nav-list-item"]}>
-								<p className={styles["header__nav-list-text"]}>Menu</p>
+								<a href="#" className={styles["header__nav-list-link"]}>Menu</a>
 							</li>
 						</ul>
 					</nav>
 
 					<div className={styles["header__profile"]}>
-						{isLogin && <p className={styles["header__profile-username"]}>{username}</p>}
+						{isLogin && (
+							<>
+								<p className={styles["header__profile-username"]}>{username}</p>
+								<button className={styles["header__profile-button"]} onClick={handleLogout}>
+									Log out
+								</button>
+							</>
+						)}
 
-						<button className={styles["header__profile-button"]} onClick={openModal}>
-							{isLogin ? "Profile" : "Sign Up"}
-						</button>
+						{!isLogin && (
+							<button className={styles["header__profile-button"]} onClick={openModal}>
+								Sign Up
+							</button>
+						)}
 
 						<img src={profileImg} alt="user" className={styles["header__profile-img"]} />
 					</div>

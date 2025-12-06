@@ -24,7 +24,9 @@
 			align-items: center;
 			gap: 42px;
 
-			&-text {
+			&-link {
+				text-decoration: none;
+
 				@include typography(Montserrat Alternates, 500, Medium, 12px, 100%, 0%, _);
 				color: $fg-light;
 			}
